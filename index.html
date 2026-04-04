@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trading Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body data-theme="dark">
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <button class="nav-btn" onclick="scrollToDashboard()">Dashboard</button>
+    <button class="nav-btn" onclick="openTool('https://www.forexfactory.com/calendar')">News / Calendar</button>
+    <button class="nav-btn" onclick="openTool('https://www.babypips.com/tools/forex-market-hours')">Market Hours</button>
+    <button class="nav-btn" onclick="toggleTheme()">
+        <span class="toggle-icon" id="theme-icon">🌙</span> Mode
+    </button>
+</div>
+
+<h1 style="text-align:center;">🚀 Trading Dashboard</h1>
+
+<div class="grid" id="dashboard-grid">
+
+<!-- Indian Market -->
+    <div class="card">
+        <h2>🏦  Indian Market  </h2>
+        <div class="btn-container">
+            <button class="btn index" onclick="openChartOnly('NSE:NIFTY')">📈 NIFTY 50<div class="symbol">NSE:NIFTY</div></button>
+            <button class="btn index" onclick="openChartOnly('BSE:SENSEX')">📈 SENSEX<div class="symbol">BSE:SENSEX</div></button>
+        </div>
+    </div>
+
+    <!-- Gold & Crypto -->
+    <div class="card">
+        <h2>🔥 Gold & Crypto</h2>
+        <div class="btn-container">
+            <button class="btn gold" onclick="openFull('XAUUSD')">🪙 GOLD<div class="symbol">XAUUSD</div></button>
+            <button class="btn crypto" onclick="openFull('BTCUSDT')">💰 BTC<div class="symbol">BTCUSDT</div></button>
+            <button class="btn crypto" onclick="openFull('ETHUSDT')">💰 ETH<div class="symbol">ETHUSDT</div></button>
+            <button class="btn crypto" onclick="openFull('XRPUSDT')">💰 XRP<div class="symbol">XRPUSDT</div></button>
+        </div>
+    </div>
+
+    <!-- FOREX -->
+    <div class="card">
+        <h2>💱 Forex Pairs</h2>
+        <button class="btn forex" onclick="openFull('EURUSD')">💱 EURUSD</button>
+        <button class="btn forex" onclick="openFull('GBPUSD')">💱 GBPUSD</button>
+        <button class="btn forex" onclick="openFull('USDJPY')">💱 USDJPY</button>
+        <button class="btn forex" onclick="openFull('USDCHF')">💱 USDCHF</button>
+        <button class="btn forex" onclick="openFull('USDCAD')">💱 USDCAD</button>
+        <button class="btn forex" onclick="openFull('AUDUSD')">💱 AUDUSD</button>
+        <button class="btn forex" onclick="openFull('NZDUSD')">💱 NZDUSD</button>
+        <button class="btn forex" onclick="openFull('EURJPY')">💱 EURJPY</button>
+        <button class="btn forex" onclick="openFull('GBPJPY')">💱 GBPJPY</button>
+        <button class="btn forex" onclick="openFull('AUDJPY')">💱 AUDJPY</button>
+        <button class="btn forex" onclick="openFull('NZDJPY')">💱 NZDJPY</button>
+        <button class="btn forex" onclick="openFull('EURGBP')">💱 EURGBP</button>
+        <button class="btn forex" onclick="openFull('EURCHF')">💱 EURCHF</button>
+        <button class="btn forex" onclick="openFull('GBPCAD')">💱 GBPCAD</button>
+        <button class="btn forex" onclick="openFull('NZDCAD')">💱 NZDCAD</button>
+    </div>
+
+    <!-- Global Indices -->
+    <div class="card">
+        <h2>📊 Global Indices</h2>
+        <div class="btn-container">
+            <button class="btn global" onclick="openFull('US30')">🌎 US30</button>
+            <button class="btn global" onclick="openFull('NDX')">🌎 NDX</button>
+            <button class="btn global" onclick="openFull('SPX')">🌎 SPX</button>
+        </div>
+    </div>
+</div>
+
+<!-- CODE PANEL -->
+<div id="codePanel">
+    <div class="code-grid" id="codeGrid"></div>
+</div>
+
+<!-- EDITOR -->
+<div id="editorPopup">
+    <div id="editorBox">
+        <input id="codeTitle" placeholder="Title"/>
+        <textarea id="editorArea"></textarea>
+        <button onclick="closeEditor()">Close</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
