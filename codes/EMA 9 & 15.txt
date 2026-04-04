@@ -1,0 +1,23 @@
+//@version=5
+indicator(title="EMA 9 & 15", shorttitle="EMA 9/15", overlay=true)
+
+// === INPUTS ===
+len1 = input.int(9, minval=1, title="EMA 9 Length")
+len2 = input.int(15, minval=1, title="EMA 15 Length")
+
+src = input(close, title="Source")
+
+// === EMA CALCULATION ===
+ema9  = ta.ema(src, len1)
+ema15 = ta.ema(src, len2)
+
+// === PLOTS ===
+plot(ema9,  title="EMA 9",  color=color.rgb(25, 228, 32), linewidth=1)
+plot(ema15, title="EMA 15", color=color.rgb(236, 18, 18), linewidth=1)
+
+// === CROSS SIGNALS ===
+bullishCross = ta.crossover(ema9, ema15)
+bearishCross = ta.crossunder(ema9, ema15)
+
+
+

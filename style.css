@@ -31,11 +31,33 @@ body {
 }
 
 .navbar {
+    position: relative;
+    display: flex;
+    justify-content: center; /* keeps buttons centered */
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: #1e293b;
+}
+
+#ih-btn {
+    position: absolute;   /* 🔥 magic */
+    left: 15px;           /* stick to left */
+    
+    width:40px;
+    height:40px;
     display:flex;
+    align-items:center;
     justify-content:center;
-    gap:10px;
-    padding:10px;
-    background:#1e293b;
+    border-radius:25%;
+    border:2px solid white;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.2s;
+}
+
+#ih-btn:hover {
+    background:#3b82f6;
 }
 
 .nav-btn {
@@ -79,25 +101,48 @@ body {
 .toggle-icon { width: 18px; height: 18px; display: inline-block; }
 
 /* CODE PANEL */
-#codePanel{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:#0f172a;
+#codePanel {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--bg-color);
+    overflow-y: auto;
+    padding: 30px 20px;
 }
 
-.code-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:15px;
-    padding:20px;
+/* TITLE */
+.code-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
 }
 
-.code-card{
-    background:#1e293b;
-    padding:15px;
-    border-radius:10px;
-    cursor:pointer;
+/* GRID → 2 PER ROW */
+.code-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 🔥 2 cards per row */
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* CARD */
+.code-card {
+    background: var(--card-color);
+    padding: 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.25s;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* HOVER EFFECT */
+.code-card:hover {
+    transform: translateY(-5px);
+    background: #334155;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 /* EDITOR */
@@ -121,4 +166,28 @@ body {
     background:#0f172a;
     color:white;
     font-family:monospace;
+}
+
+#ih-btn {
+    width:40px;
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:25%;
+    border:2px solid white;
+    cursor:pointer;
+    font-weight:bold;
+    margin-right:10px;
+    transition:0.2s;
+}
+
+#ih-btn:hover {
+    background:#3b82f6;
+}
+
+@media (max-width: 600px) {
+    .code-grid {
+        grid-template-columns: 1fr; /* 1 per row on mobile */
+    }
 }

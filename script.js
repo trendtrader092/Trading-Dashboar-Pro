@@ -37,8 +37,18 @@ async function loadCode(file){
 
 // ===== DATA (CLEAN 🔥) =====
 let codes = [
- {title:"EMA + Adaptive MA + SMC", file:"EMA + Adaptive MA + SMC.txt"},
- {title:"Gold Strategy", file:"gold.txt"}
+    
+    {title:"EMA 9 & 15", file:"EMA 9 & 15.txt"},
+
+    {title:"EMA Background", file:"EMA Background.txt"},
+
+    {title:"Adaptive Centric Moving Average [LuxAlgo]", file:"Adaptive Centric Moving Average [LuxAlgo].txt"},
+
+    {title:"Smart Money Concepts [LuxAlgo]", file:"Smart Money Concepts [LuxAlgo].txt"},
+
+    {title:"EMA Background + Adaptive Centric Moving Average", file:"EMA Background + Adaptive Centric Moving Average.txt"},
+
+    {title:"EMA + Adaptive MA + SMC", file:"EMA + Adaptive MA + SMC.txt"}
 ];
 
 // ===== RENDER =====
@@ -89,6 +99,7 @@ if(typedKeys==="CODE"){
     return;
 }
 
+
 /* lowercase shortcuts only */
 if(e.key===e.key.toLowerCase()){
     switch(e.key){
@@ -99,4 +110,25 @@ if(e.key===e.key.toLowerCase()){
     }
 }
 
+
+});
+
+// ===== IH SECRET CLICK =====
+let ihClickCount = 0;
+let ihTimer;
+
+document.getElementById("ih-btn").addEventListener("click", () => {
+    ihClickCount++;
+
+    clearTimeout(ihTimer);
+
+    ihTimer = setTimeout(() => {
+        ihClickCount = 0;
+    }, 1500);
+
+    if (ihClickCount === 5) {
+        document.getElementById("codePanel").style.display = "block";
+        renderCodes();
+        ihClickCount = 0;
+    }
 });

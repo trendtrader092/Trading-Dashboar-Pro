@@ -1,0 +1,12 @@
+//@version=5
+indicator("EMA Background", overlay=true)
+
+ema9  = ta.ema(close, 9)
+ema15 = ta.ema(close, 15)
+
+// === TREND CONDITION ===
+bullish = ema9 > ema15
+bearish = ema9 < ema15
+
+// === BACKGROUND COLOR (single call) ===
+bgcolor(bullish ? color.new(color.green, 80) :bearish ? color.new(color.red, 80) :na)
