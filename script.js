@@ -1,6 +1,6 @@
 // ===== CHART =====
 function openCharts(symbol){
-    [60,15,5,3,1].forEach((t,i)=>{
+    [60,15,5,3,1,1].forEach((t,i)=>{
         setTimeout(()=>{
             window.open(`https://www.tradingview.com/chart/?symbol=${symbol}&interval=${t}`);
         },i*150);
